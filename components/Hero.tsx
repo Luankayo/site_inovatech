@@ -13,55 +13,51 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4 py-20"
     >
-      <div className="max-w-3xl w-full text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        {/* Avatar igual SobreMim */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          className="text-center lg:text-left"
         >
-          {/* Título */}
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight"
-          >
+          <div className="w-48 h-48 sm:w-64 sm:h-64 mx-auto lg:mx-0 mb-8 relative">
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
+              <div className="w-full h-full rounded-full bg-gray-700 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/foto-perfil.jpg"
+                  alt="Foto de Luan Kayo"
+                  className="w-full h-full object-cover rounded-full object-top"
+                />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Texto e botões */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6 text-center lg:text-left"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
             Olá, me chamo <span className="gradient-text">Luan Kayo</span>
-          </motion.h1>
+          </h1>
 
-          {/* Subtítulo */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="text-base sm:text-lg md:text-xl text-gray-300 mb-4 h-6"
-          >
-            <span className="typewriter">
-              Web Developer | Desenvolvedor Web
-            </span>
-          </motion.div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300">
+            Web Developer | Desenvolvedor Web
+          </p>
 
-          {/* Descrição */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-xl mx-auto"
-          >
+          <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
             Transformo ideias em experiências digitais incríveis. Especializado
             em desenvolvimento de Web Sites com tecnologias modernas.
-          </motion.p>
+          </p>
 
           {/* Botões */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6"
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-6">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -81,17 +77,7 @@ const Hero = () => {
               <FiMail />
               Entre em Contato
             </motion.button>
-          </motion.div>
-        </motion.div>
-
-        {/* Ícone scroll */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce"
-        >
-          <FiArrowDown className="text-gray-400 text-xl" />
+          </div>
         </motion.div>
       </div>
     </section>
