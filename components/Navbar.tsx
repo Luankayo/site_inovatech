@@ -52,7 +52,7 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-lg sm:text-xl font-bold cursor-pointer flex items-center gap-1"
+            className="text-lg sm:text-xl font-bold cursor-pointer flex items-center"
             onClick={() => scrollTo("home")}
           >
             <span className="text-white">INOVA</span>

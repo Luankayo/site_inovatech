@@ -9,7 +9,7 @@ const stats = [
     number: "150+",
     text: "Clientes no Maranhão, Acre, Macapá, Piauí e Pará",
   },
-  { icon: FiCpu, number: "20+", text: "Anos de Mercado" },
+  { icon: FiCpu, number: "20+", text: "Anos no Mercado" },
   {
     icon: FiTrendingUp,
     number: "Pacote Completo",
