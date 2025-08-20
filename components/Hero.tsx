@@ -43,7 +43,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="space-y-6 text-center lg:text-left"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
             Olá, me chamo <span className="gradient-text">Luan Kayo</span>
           </h1>
 
