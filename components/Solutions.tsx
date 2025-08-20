@@ -26,7 +26,7 @@ const products = [
     title: "GA Fitness",
     description:
       "Sistema de Gestão Completo, Cadastro de Alunos, Modalidades, Ficha de Treino, Financeiro, Relatórios e muito mais!",
-    price: "R$ 119,90/mês",
+    price: "R$ 1.499,90",
     images: ["/produtos/sistema.png"],
   },
   {
