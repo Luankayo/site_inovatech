@@ -1,6 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import { FiArrowDown, FiMail } from "react-icons/fi";
+import { TypeAnimation } from "react-type-animation";
+import { FaRocket } from "react-icons/fa";
+import { Rocket } from "lucide-react";
 
 const Hero = () => {
   const scrollTo = (elementId: string) => {
@@ -13,47 +16,51 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4 py-20"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-6 py-12 sm:py-16"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        {/* Avatar igual SobreMim */}
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        {/* Texto institucional Inovatech */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center lg:text-left"
-        >
-          <div className="w-48 h-48 sm:w-64 sm:h-64 mx-auto lg:mx-0 mb-8 relative">
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
-              <div className="w-full h-full rounded-full bg-gray-700 flex items-center justify-center overflow-hidden">
-                <img
-                  src="/foto-perfil.jpg"
-                  alt="Foto de Luan Kayo"
-                  className="w-full h-full object-cover rounded-full object-top"
-                />
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Texto e botões */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="space-y-6 text-center lg:text-left"
         >
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-            Olá, me chamo <span className="gradient-text">Luan Kayo</span>
+          {/* Nome da empresa com digitação */}
+          {/* Nome da empresa animado */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold leading-tight text-blue-500 flex items-center justify-center lg:justify-start gap-3">
+            <TypeAnimation
+              sequence={[
+                "INOVATECH", // texto
+                4000, // espera
+              ]}
+              wrapper="span"
+              cursor={false}
+              repeat={Infinity}
+              speed={600} // extremamente lento
+            />
+            <Rocket size={64} className="text-white animate-pulse" />
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-gray-300">
-            Web Developer | Desenvolvedor Web
-          </p>
+          {/* Subtítulo com animação */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-lg sm:text-xl md:text-2xl font-inter"
+          >
+            <span className="text-gray-300">Sistema de </span>
+            <span className="text-blue-400 font-semibold">Gestão</span>
+            <span className="text-gray-300"> e </span>
+            <span className="text-purple-400 font-semibold">
+              Controle de Acesso
+            </span>
+          </motion.p>
 
+          {/* Texto institucional */}
           <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
-            Transformo ideias em experiências digitais incríveis. Especializado
-            em desenvolvimento de Web Sites com tecnologias modernas.
+            Desde 2003 transformando empresas com tecnologia de ponta. Soluções
+            que trazem segurança, eficiência e organização para o seu negócio.
           </p>
 
           {/* Botões */}
@@ -61,10 +68,10 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollTo("projetos")}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-sm sm:text-base font-semibold flex items-center gap-2 w-full sm:w-auto justify-center"
+              onClick={() => scrollTo("solutions")}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-sm sm:text-base font-semibold flex items-center gap-2 w-full sm:w-auto justify-center shadow-lg shadow-blue-500/20"
             >
-              Ver Projetos
+              Ver Produtos
               <FiArrowDown className="animate-bounce" />
             </motion.button>
 

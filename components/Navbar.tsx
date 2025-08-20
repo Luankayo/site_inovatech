@@ -8,7 +8,7 @@ const Navbar = () => {
   const navItems = [
     { id: "home", label: "Home" },
     { id: "sobre", label: "Sobre" },
-    { id: "projetos", label: "Projetos" },
+    { id: "solutions", label: "Soluções" },
     { id: "contato", label: "Contato" },
   ];
 
@@ -52,10 +52,11 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-lg sm:text-xl font-bold gradient-text cursor-pointer"
+            className="text-lg sm:text-xl font-bold cursor-pointer flex items-center gap-1"
             onClick={() => scrollTo("home")}
           >
-            Luan Kayo
+            <span className="text-white">INOVA</span>
+            <span className="text-blue-500">TECH</span>
           </motion.div>
 
           {/* Menu único (horizontal até no mobile) */}

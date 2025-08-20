@@ -1,31 +1,31 @@
 "use client";
 import { motion } from "framer-motion";
 import { FiMail, FiMessageCircle } from "react-icons/fi";
-import { FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 const Contato = () => {
   const handleEmailClick = () => {
-    window.location.href = "mailto:luankayo181@gmail.com";
+    window.location.href = "mailto:jaimesantos2801@yahoo.com.br";
   };
 
   const contatos = [
     {
       name: "WhatsApp",
       icon: <FaWhatsapp className="text-green-400 text-4xl mb-4" />,
-      link: "https://wa.me/5598985017438",
-      text: "Fale comigo direto no WhatsApp",
+      link: "https://wa.me/5598988370147",
+      text: "Fale conosco direto no WhatsApp",
     },
     {
-      name: "LinkedIn",
-      icon: <FaLinkedin className="text-blue-400 text-4xl mb-4" />,
-      link: "https://www.linkedin.com/in/luan-kayo-8001ba322/",
-      text: "Veja meu perfil profissional",
+      name: "Instagram",
+      icon: <FaInstagram className="text-pink-500 text-4xl mb-4" />,
+      link: "https://instagram.com/inovatechma",
+      text: "Siga a Inovatech no Instagram",
     },
     {
-      name: "GitHub",
-      icon: <FaGithub className="text-gray-300 text-4xl mb-4" />,
-      link: "https://github.com/Luankayo",
-      text: "Confira meus repositórios",
+      name: "Email",
+      icon: <FiMail className="text-blue-400 text-4xl mb-4" />,
+      link: "mailto:jaimesantos2801@yahoo.com.br",
+      text: "Envie-nos um email",
     },
   ];
 
@@ -41,11 +41,12 @@ const Contato = () => {
             Vamos Conversar?
           </h2>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Tem um projeto em mente? Está procurando por um desenvolvedor para
-            sua equipe? Ou apenas quer bater um papo sobre tecnologia?
+            Quer saber mais sobre nossas soluções? Precisa de uma proposta para
+            sua academia ou empresa?
           </p>
           <p className="text-lg text-gray-300 mb-12">
-            Ficarei feliz em ouvir de você! Vamos criar algo incrível juntos.
+            Estamos prontos para ajudar a modernizar e transformar o seu
+            negócio!
           </p>
         </motion.div>
 
@@ -58,11 +59,11 @@ const Contato = () => {
         >
           <FiMessageCircle className="text-5xl text-blue-400 mx-auto mb-6" />
           <h3 className="text-2xl font-bold text-white mb-4">
-            Pronto para começar seu projeto?
+            Solicite um orçamento
           </h3>
           <p className="text-gray-300 mb-8">
-            Envie-me um email e vamos discutir como posso ajudar você a
-            transformar suas ideias em realidade.
+            Clique no botão abaixo e envie-nos um e-mail ou entre em contato por
+            um dos canais abaixo.
           </p>
 
           <motion.button
@@ -72,7 +73,7 @@ const Contato = () => {
             className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg shadow-blue-500/25"
           >
             <FiMail className="text-xl" />
-            Me mande um email
+            Enviar Email
           </motion.button>
         </motion.div>
 
@@ -105,8 +106,8 @@ const Contato = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-gray-400 mt-12"
         >
-          <p>📧 luankayo181@gmail.com</p>
-          <p className="mt-2 text-sm">Respondo em até 24 horas!</p>
+          <p>📧 jaimesantos2801@yahoo.com.br</p>
+          <p className="mt-2 text-sm">Respondemos rapidamente!</p>
         </motion.div>
       </div>
     </section>
