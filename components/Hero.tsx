@@ -37,7 +37,7 @@ const Hero = () => {
               wrapper="span"
               cursor={false}
               repeat={Infinity}
-              speed={50} // extremamente lento
+              speed={10} // extremamente lento
             />
             <Rocket size={64} className="text-white animate-pulse" />
           </h1>
