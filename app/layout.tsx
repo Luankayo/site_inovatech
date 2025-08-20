@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Luan Kayo - Web Developer | Full-Stack Engineer",
+  title: "INOVATECH - Gestão e Controle de Acesso",
   description:
     "Portfólio pessoal de Luan Kayo - Desenvolvedor Full-Stack especializado em React, TypeScript, Node.js e tecnologias modernas.",
   keywords:
