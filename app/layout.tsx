@@ -7,11 +7,11 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "INOVATECH - Gestão e Controle de Acesso",
+  title: "INOVATECH - Soluções em Gestão e Controle de Acesso",
   description:
-    "Portfólio pessoal de Luan Kayo - Desenvolvedor Full-Stack especializado em React, TypeScript, Node.js e tecnologias modernas.",
+    "A InovaTech oferece sistemas modernos de gestão e controle de acesso para empresas que buscam eficiência, segurança e inovação tecnológica.",
   keywords:
-    "desenvolvedor, full-stack, react, typescript, node.js, web developer",
+    "InovaTech, gestão empresarial, controle de acesso, tecnologia, sistemas de gestão, software corporativo, segurança, inovação",
 };
 
 export default function RootLayout({

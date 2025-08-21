@@ -45,7 +45,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700"
+      className="fixed top-0 left-0 right-0 z-50 bg-gray-100 backdrop-blur-sm border-b border-gray-100"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -55,8 +55,8 @@ const Navbar = () => {
             className="text-lg sm:text-xl font-bold cursor-pointer flex items-center"
             onClick={() => scrollTo("home")}
           >
-            <span className="text-white">INOVA</span>
-            <span className="text-blue-500">TECH</span>
+            <span className="text-gray-700">INOVA</span>
+            <span className="text-blue-400">TECH</span>
           </motion.div>
 
           {/* Menu único (horizontal até no mobile) */}
@@ -69,8 +69,8 @@ const Navbar = () => {
                 onClick={() => scrollTo(item.id)}
                 className={`px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200 ${
                   activeSection === item.id
-                    ? "text-blue-400 bg-blue-500/10"
-                    : "text-gray-300 hover:text-white hover:bg-gray-700/50"
+                    ? "text-gray-800 bg-gray-300"
+                    : "text-gray-800 hover:text-gray-800 hover:bg-gray-400/50"
                 }`}
               >
                 {item.label}

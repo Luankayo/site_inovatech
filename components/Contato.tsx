@@ -30,21 +30,21 @@ const Contato = () => {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-gray-800/50">
+    <section id="contato" className="py-20 bg-gray-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Vamos Conversar?
           </h2>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
             Quer saber mais sobre nossas soluções? Precisa de uma proposta para
-            sua academia ou empresa?
+            sua Academia ou Empresa?
           </p>
-          <p className="text-lg text-gray-300 mb-12">
+          <p className="text-lg text-gray-700 mb-12">
             Estamos prontos para ajudar a modernizar e transformar o seu
             negócio!
           </p>
@@ -55,13 +55,13 @@ const Contato = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-gray-700/30 backdrop-blur-sm border border-gray-600 rounded-2xl p-8 mb-12"
+          className="bg-gray-700 backdrop-blur-sm border border-gray-600 rounded-2xl p-8 mb-12"
         >
-          <FiMessageCircle className="text-5xl text-blue-400 mx-auto mb-6" />
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <FiMessageCircle className="text-5xl text-gray-100 mx-auto mb-6" />
+          <h3 className="text-2xl font-bold text-gray-100 mb-4">
             Solicite um orçamento
           </h3>
-          <p className="text-gray-300 mb-8">
+          <p className="text-gray-100 mb-8">
             Clique no botão abaixo e envie-nos um e-mail ou entre em contato por
             um dos canais abaixo.
           </p>
@@ -89,13 +89,13 @@ const Contato = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 + i * 0.2 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-700/30 backdrop-blur-sm border border-gray-600 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-700/50 transition-all duration-200"
+              className="bg-gray-700 backdrop-blur-sm border border-gray-600 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-700/50 transition-all duration-200"
             >
               {contato.icon}
               <h4 className="text-lg font-semibold text-white mb-2">
                 {contato.name}
               </h4>
-              <p className="text-sm text-gray-300">{contato.text}</p>
+              <p className="text-sm text-gray-80">{contato.text}</p>
             </motion.a>
           ))}
         </div>
@@ -104,11 +104,8 @@ const Contato = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-gray-400 mt-12"
-        >
-          <p>📧 jaimesantos2801@yahoo.com.br</p>
-          <p className="mt-2 text-sm">Respondemos rapidamente!</p>
-        </motion.div>
+          className="text-gray-600 mt-12"
+        ></motion.div>
       </div>
     </section>
   );

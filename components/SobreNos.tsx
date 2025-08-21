@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FiUsers, FiCpu, FiTrendingUp } from "react-icons/fi";
-import { FaBuilding, FaServer } from "react-icons/fa";
+import { FiUsers, FiAward, FiTrendingUp } from "react-icons/fi";
 
 const stats = [
   {
@@ -9,7 +8,7 @@ const stats = [
     number: "150+",
     text: "Clientes no Maranhão, Acre, Macapá, Piauí e Pará",
   },
-  { icon: FiCpu, number: "20+", text: "Anos no Mercado" },
+  { icon: FiAward, number: "20+", text: "Anos no Mercado" },
   {
     icon: FiTrendingUp,
     number: "Pacote Completo",
@@ -36,7 +35,7 @@ const itemVariants = {
 
 const SobreNos = () => {
   return (
-    <section id="sobre" className="py-20 bg-gray-800/50">
+    <section id="sobre" className="py-20 bg-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título */}
         <motion.div
@@ -45,10 +44,10 @@ const SobreNos = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Sobre a <span className="gradient-text">INOVATECH</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-800 max-w-2xl mx-auto">
             Desde 2003, transformando academias em negócios mais organizados,
             seguros e tecnológicos.
           </p>
@@ -60,25 +59,25 @@ const SobreNos = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6 text-gray-300 text-lg leading-relaxed"
+            className="space-y-6 text-gray-800 text-lg leading-relaxed"
           >
             <p>
-              A <span className="font-bold text-white">INOVATECH</span> iniciou
-              sua jornada em
-              <span className="text-blue-400"> São Luís - Maranhão</span> no ano
-              de 2003, com o propósito de informatizar e modernizar academias da
-              região.
+              A <span className="font-bold text-gray-800">INOVATECH</span>{" "}
+              iniciou sua jornada em
+              <span className="text-gray-800"> São Luís do Maranhão</span> no
+              ano de 2003, com o propósito de informatizar e modernizar
+              academias da região.
             </p>
             <p>
               Hoje já são mais de{" "}
-              <span className="font-bold text-white">150 clientes </span>
+              <span className="font-bold text-gray-800">150 clientes </span>
               que confiam em nossa experiência para gerir e controlar o acesso
               dos seus alunos, garantindo mais segurança, eficiência e
               organização.
             </p>
             <p>
               Nosso pacote completo inclui:{" "}
-              <span className="text-blue-400 font-semibold">
+              <span className="text-gray-800 font-semibold">
                 software de gestão, computadores, monitores, catracas, e suporte
                 especializado
               </span>
@@ -100,13 +99,13 @@ const SobreNos = () => {
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-700/30 backdrop-blur-sm border border-gray-600 rounded-xl p-8 text-center hover:bg-gray-700/50 transition-all duration-200"
+              className="bg-gray-700 backdrop-blur-sm border border-gray-400 rounded-xl p-8 text-center hover:bg-gray-700/50 transition-all duration-200"
             >
-              <stat.icon className="text-4xl text-blue-400 mx-auto mb-4" />
+              <stat.icon className="text-4xl text-gray-100 mx-auto mb-4" />
               <div className="text-3xl font-bold text-white mb-2">
                 {stat.number}
               </div>
-              <div className="text-gray-400">{stat.text}</div>
+              <div className="text-gray-100">{stat.text}</div>
             </motion.div>
           ))}
         </motion.div>

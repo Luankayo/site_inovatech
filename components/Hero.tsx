@@ -2,8 +2,6 @@
 import { motion } from "framer-motion";
 import { FiArrowDown, FiMail } from "react-icons/fi";
 import { TypeAnimation } from "react-type-animation";
-import { FaRocket } from "react-icons/fa";
-import { Rocket } from "lucide-react";
 
 const Hero = () => {
   const scrollTo = (elementId: string) => {
@@ -16,7 +14,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-6 py-12 sm:py-16"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-blue-500 to-blue-500 px-6 py-12 sm:py-16"
     >
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
         {/* Texto institucional Inovatech */}
@@ -28,37 +26,26 @@ const Hero = () => {
         >
           {/* Nome da empresa com digitação */}
           {/* Nome da empresa animado */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold leading-tight text-blue-500 flex items-center justify-center lg:justify-start gap-3">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold leading-tight text-white text-center">
             <TypeAnimation
               sequence={[
-                "INOVATECH", // texto
-                4000, // espera
+                "INOVATECH",
+                1000,
+                "Sistema de Gestão e Controle de Acesso",
+                1000,
+                "Pacote Completo\nSoftware + Hardware + Suporte",
+                1000,
               ]}
               wrapper="span"
               cursor={false}
+              speed={18}
+              className="whitespace-pre-line"
               repeat={Infinity}
-              speed={10} // extremamente lento
             />
-            <Rocket size={64} className="text-white animate-pulse" />
           </h1>
 
-          {/* Subtítulo com animação */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl font-inter"
-          >
-            <span className="text-gray-300">Sistema de </span>
-            <span className="text-blue-400 font-semibold">Gestão</span>
-            <span className="text-gray-300"> e </span>
-            <span className="text-purple-400 font-semibold">
-              Controle de Acesso
-            </span>
-          </motion.p>
-
           {/* Texto institucional */}
-          <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p className="text-sm sm:text-base text-white leading-relaxed max-w-xl mx-auto lg:mx-0 font-semibold">
             Desde 2003 transformando empresas com tecnologia de ponta. Soluções
             que trazem segurança, eficiência e organização para o seu negócio.
           </p>
@@ -79,7 +66,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollTo("contato")}
-              className="border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg text-sm sm:text-base font-semibold flex items-center gap-2 w-full sm:w-auto justify-center"
+              className="border-2 border-gray-200 text-gray-100 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg text-sm sm:text-base font-semibold flex items-center gap-2 w-full sm:w-auto justify-center"
             >
               <FiMail />
               Entre em Contato
