@@ -15,19 +15,15 @@ const products = [
     title: "Catraca com FaceID",
     description:
       "Controle de acesso moderno e seguro com reconhecimento facial.",
-    price: "R$ 4.999,00",
-    images: [
-      "/produtos/catraca1.webp",
-      "/produtos/catraca2.webp",
-      "/produtos/catraca3.jpg",
-    ],
+    price: "R$ 4.900,00",
+    images: ["/produtos/catraca4.webp", "/produtos/catraca1.webp"],
   },
   {
     id: 2,
     title: "GA Fitness",
     description:
       "Sistema de Gestão Completo, Cadastro de Alunos, Modalidades, Ficha de Treino, Financeiro, Relatórios e muito mais!",
-    price: "R$ 1.499,90",
+    price: "R$ 99,90/mês",
     images: ["/produtos/sistema.png"],
   },
   {
@@ -101,7 +97,7 @@ export default function Solutions() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="px-3 py-1 rounded-full text-white text-sm font-bold
-               bg-gradient-to-r from-indigo-600 to-blue-600 shadow-md shadow-blue-900/10"
+               bg-gradient-to-r from-indigo-600 to-blue-600 shadow-md shadow-blue-800"
                   >
                     {product.price}
                   </motion.div>
@@ -179,7 +175,7 @@ export default function Solutions() {
 
             {/* Disclaimer */}
             <p className="text-xs text-gray-500 text-center mt-4 italic">
-              *Imagens meramente ilustrativas. Consulte os modelos disponíveis.
+              *Consulte os modelos disponíveis.
             </p>
           </div>
         </div>

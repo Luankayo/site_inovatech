@@ -13,17 +13,15 @@ const Footer = () => {
         <div className="text-center">
           <p className="text-gray-800">
             © 2025{" "}
-            <span className="gradient-text font-semibold">INOVATECH</span>.
-            Todos os direitos reservados.
+            <span className="gradient-text font-semibold">INOVATECH </span>
+            Todos os direitos reservados
           </p>
           <a
             href="https://luankayo.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-800 text-sm mt-2 underline decoration-gray-800 hover:decoration-blue-500 transition"
-          >
-            Desenvolvido por <span className="font-semibold">Luan Kayo</span>
-          </a>
+          ></a>
         </div>
       </div>
     </motion.footer>
