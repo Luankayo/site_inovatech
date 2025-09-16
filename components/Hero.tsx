@@ -2,8 +2,13 @@
 import { motion } from "framer-motion";
 import { FiArrowDown, FiMail } from "react-icons/fi";
 import { TypeAnimation } from "react-type-animation";
+import { useEffect, useState } from "react";
+
+const images = ["/hero/inova-hero.jpg"];
 
 const Hero = () => {
+  const [index, setIndex] = useState(0);
+
   const scrollTo = (elementId: string) => {
     const element = document.getElementById(elementId);
     if (element) {
@@ -14,22 +19,37 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center 
-             bg-gradient-to-br from-blue-500 to-blue-600 
-             px-4 sm:px-6 lg:px-12 py-12 sm:py-16"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-12 py-12 sm:py-16 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        {/* Texto institucional */}
+      {/* Background slideshow */}
+      <div className="absolute inset-0">
+        {images.map((img, i) => (
+          <motion.img
+            key={i}
+            src={img}
+            alt="Background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: i === index ? 1 : 0 }}
+            transition={{ duration: 1.2 }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ))}
+        {/* Overlay azul para leitura do texto */}
+        <div className="absolute inset-0 bg-blue-900/70" />
+      </div>
+
+      {/* Conteúdo */}
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="space-y-6 text-center lg:text-left"
         >
-          {/* Título responsivo */}
+          {/* Título responsivo com TypeAnimation */}
           <h1
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl 
-                     font-orbitron font-bold leading-tight text-white"
+                       font-orbitron font-bold leading-tight text-white"
           >
             <TypeAnimation
               sequence={[
@@ -51,7 +71,7 @@ const Hero = () => {
           {/* Texto institucional */}
           <p
             className="text-sm sm:text-base md:text-lg text-white leading-relaxed 
-                   max-w-xl mx-auto lg:mx-0 font-semibold"
+                       max-w-xl mx-auto lg:mx-0"
           >
             Desde 2003 transformando empresas com tecnologia de ponta. Soluções
             que trazem segurança, eficiência e organização para o seu negócio.
@@ -64,11 +84,11 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollTo("solutions")}
               className="bg-blue-600 hover:bg-blue-700 text-white 
-                     px-6 py-3 rounded-lg 
-                     text-sm sm:text-base font-semibold 
-                     flex items-center gap-2 
-                     w-full sm:w-auto justify-center 
-                     shadow-lg shadow-blue-500/20"
+                         px-6 py-3 rounded-lg 
+                         text-sm sm:text-base font-semibold 
+                         flex items-center gap-2 
+                         w-full sm:w-auto justify-center 
+                         shadow-lg shadow-blue-500/20"
             >
               Ver Produtos
               <FiArrowDown className="animate-bounce" />
@@ -79,11 +99,11 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollTo("contato")}
               className="border-2 border-gray-200 text-gray-100 
-                     hover:bg-blue-600 hover:text-white 
-                     px-6 py-3 rounded-lg 
-                     text-sm sm:text-base font-semibold 
-                     flex items-center gap-2 
-                     w-full sm:w-auto justify-center"
+                         hover:bg-blue-600 hover:text-white 
+                         px-6 py-3 rounded-lg 
+                         text-sm sm:text-base font-semibold 
+                         flex items-center gap-2 
+                         w-full sm:w-auto justify-center"
             >
               <FiMail />
               Entre em Contato

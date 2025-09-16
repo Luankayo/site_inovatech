@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -14,6 +15,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+
       const sections = navItems.map((item) => document.getElementById(item.id));
       const scrollPos = window.scrollY + 100;
 
@@ -45,7 +48,9 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-gray-100 backdrop-blur-sm border-b border-gray-100"
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        scrolled ? "bg-white/10 backdrop-blur-md border-b border-white/20" : ""
+      }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -55,11 +60,11 @@ const Navbar = () => {
             className="text-lg sm:text-xl font-bold cursor-pointer flex items-center"
             onClick={() => scrollTo("home")}
           >
-            <span className="text-gray-700">INOVA</span>
+            <span className="text-white">INOVA</span>
             <span className="text-blue-400">TECH</span>
           </motion.div>
 
-          {/* Menu único (horizontal até no mobile) */}
+          {/* Menu */}
           <div className="flex flex-wrap gap-2 sm:gap-4">
             {navItems.map((item) => (
               <motion.button
@@ -69,8 +74,8 @@ const Navbar = () => {
                 onClick={() => scrollTo(item.id)}
                 className={`px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200 ${
                   activeSection === item.id
-                    ? "text-gray-800 bg-gray-300"
-                    : "text-gray-800 hover:text-gray-800 hover:bg-gray-400/50"
+                    ? "text-white bg-white/20"
+                    : "text-white hover:bg-blue-400/30"
                 }`}
               >
                 {item.label}

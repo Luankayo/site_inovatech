@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +16,7 @@ const products = [
     description:
       "Controle de acesso moderno e seguro com reconhecimento facial.",
     price: "R$ 4.900,00",
-    images: ["/produtos/catraca4.webp", "/produtos/catraca1.webp"],
+    images: ["/services/catraca4.webp"],
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const products = [
     description:
       "Sistema de Gestão Completo, Cadastro de Alunos, Modalidades, Ficha de Treino, Financeiro, Relatórios e muito mais!",
     price: "R$ 99,90/mês",
-    images: ["/produtos/sistema.png"],
+    images: ["/services/sistema.png"],
   },
   {
     id: 3,
@@ -32,22 +32,50 @@ const products = [
     description:
       "IDFace, o controlador de Acesso com Reconhecimento Facial mais moderno e seguro do mercado.",
     price: "R$ 1.499,90",
-    images: ["/produtos/face-id.webp"],
+    images: ["/services/face-id.webp"],
   },
 ];
+
+const bgImages = ["/hero/inova-hero.jpg"];
 
 export default function Solutions() {
   const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
+  // slideshow de fundo
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % bgImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="solutions"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-blue-500 to-blue-500 px-6 py-12 sm:py-16"
+      className="relative min-h-screen flex items-center justify-center px-6 py-12 sm:py-16 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background slideshow */}
+      <div className="absolute inset-0">
+        {bgImages.map((img, i) => (
+          <motion.img
+            key={i}
+            src={img}
+            alt="Background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: i === index ? 1 : 0 }}
+            transition={{ duration: 1.2 }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ))}
+        {/* Overlay azul para leitura */}
+        <div className="absolute inset-0 bg-blue-900/80" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,11 +83,10 @@ export default function Solutions() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-4">
-            <span className="text-gray-100">Nossas </span>
-            <span className="text-gray-100">Soluções</span>
+          <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-white">
+            Nossas Soluções
           </h2>
-          <p className="text-x2 text-gray-200">
+          <p className="text-x3 text-gray-300">
             Tecnologias de ponta desenvolvidas para impulsionar o crescimento do
             seu negócio
           </p>
@@ -75,7 +102,7 @@ export default function Solutions() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
               onClick={() => setSelectedProduct(product)}
-              className="group bg-gray-400 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-400 cursor-pointer"
+              className="group bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 cursor-pointer"
             >
               <div className="relative overflow-hidden">
                 <motion.img
@@ -85,13 +112,13 @@ export default function Solutions() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </div>
 
               <div className="p-6">
                 {/* Título + preço */}
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-orbitron font-semibold group-hover:text-gray-800 transition-colors">
+                  <h3 className="text-xl font-orbitron font-semibold text-white">
                     {product.title}
                   </h3>
                   <motion.div
@@ -120,13 +147,14 @@ export default function Solutions() {
                 >
                   Ver detalhes
                 </motion.button>
+
                 {/* Botão WhatsApp - Saiba mais */}
                 <a
-                  href="https://wa.me/5598988370147?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto%20{product.title}!"
+                  href={`https://wa.me/5598988370147?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto%20${product.title}!`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-lg font-semibold
-             bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700
+             bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800
              text-white shadow-lg shadow-gray-500/20 transition"
                 >
                   <FaWhatsapp className="text-xl" />
@@ -138,7 +166,6 @@ export default function Solutions() {
         </div>
       </div>
 
-      {/* Modal com carrossel */}
       {/* Modal com carrossel */}
       {selectedProduct && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
@@ -173,7 +200,6 @@ export default function Solutions() {
               ))}
             </Swiper>
 
-            {/* Disclaimer */}
             <p className="text-xs text-gray-500 text-center mt-4 italic">
               *Consulte os modelos disponíveis.
             </p>
