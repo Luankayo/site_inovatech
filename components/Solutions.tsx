@@ -1,7 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -38,8 +37,28 @@ const products = [
 
 const bgImages = ["/hero/inova-hero.jpg"];
 
+// variants iguais ao SobreNos
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
 export default function Solutions() {
   const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
+
+  // ref + inView pra disparar animações
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
@@ -92,14 +111,17 @@ export default function Solutions() {
           </p>
         </motion.div>
 
-        {/* Grid de produtos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {products.map((product, index) => (
+        {/* Grid animada */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
+          {products.map((product) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              variants={itemVariants}
               whileHover={{ y: -5 }}
               onClick={() => setSelectedProduct(product)}
               className="group bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 cursor-pointer"
@@ -148,7 +170,7 @@ export default function Solutions() {
                   Ver detalhes
                 </motion.button>
 
-                {/* Botão WhatsApp - Saiba mais */}
+                {/* Botão WhatsApp */}
                 <a
                   href={`https://wa.me/5598988370147?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto%20${product.title}!`}
                   target="_blank"
@@ -163,7 +185,7 @@ export default function Solutions() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Modal com carrossel */}

@@ -18,6 +18,24 @@ const contatos = [
   },
 ];
 
+// mesmos variants usados em SobreNos e Solutions
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
 const Contato = () => {
   const handleEmailClick = () => {
     window.location.href = "mailto:jaimesantos2801@yahoo.com.br";
@@ -31,7 +49,7 @@ const Contato = () => {
       {/* Background igual da hero/solutions */}
       <div className="absolute inset-0">
         <img
-          src="/hero/inova-solutions.jpg" // mesma imagem da hero
+          src="/hero/inova-solutions.jpg"
           alt="Background"
           className="w-full h-full object-cover"
         />
@@ -62,10 +80,10 @@ const Contato = () => {
 
         {/* Card principal do email */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
           className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-12 shadow-lg shadow-black/30"
         >
           <FiMessageCircle className="text-5xl text-white mx-auto mb-6" />
@@ -88,17 +106,21 @@ const Contato = () => {
           </motion.button>
         </motion.div>
 
-        {/* Outros contatos */}
-        <div className="grid sm:grid-cols-2 gap-6">
+        {/* Outros contatos animados em grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid sm:grid-cols-2 gap-6"
+        >
           {contatos.map((contato, i) => (
             <motion.a
               key={i}
               href={contato.link}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 + i * 0.2 }}
+              variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:scale-105 transition-all duration-200 shadow-lg shadow-black/25"
             >
@@ -109,7 +131,7 @@ const Contato = () => {
               <p className="text-sm text-gray-200">{contato.text}</p>
             </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
